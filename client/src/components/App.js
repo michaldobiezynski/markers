@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+
+import MapContainer from './MapContainer';
 
 const App = () => {
-    return (
-        <div>
-            App
-        </div>
-    )
-}
+  return (
+    <div>
+      <MapContainer />
+    </div>
+  );
+};
 
-export default App
+export default App;
