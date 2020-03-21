@@ -4,7 +4,7 @@ const { check, validationResult } = require('express-validator');
 
 const Marker = require('../models/Marker');
 
-//@route    Get /marker/all
+//@route    GET /marker/all
 //@desc     Get all markers
 //@access   Public
 router.get('/all', async (req, res) => {

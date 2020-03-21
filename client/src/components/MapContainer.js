@@ -21,7 +21,7 @@ class MapContainer extends Component {
   }
 
   render() {
-    const mapClicked = (mapProps, map, clickEvent) => {
+    const mapClicked = clickEvent => {
       this.setState({
         points: [
           ...this.state.points,
@@ -76,7 +76,7 @@ class MapContainer extends Component {
         .then(response => console.log(response));
     };
 
-    return this.state.points ? (
+    return (
       <Map
         className='map'
         google={this.props.google}
@@ -96,10 +96,6 @@ class MapContainer extends Component {
           );
         })}
       </Map>
-    ) : (
-      <div className='loadingMsg'>
-        <h1>Loading</h1>
-      </div>
     );
   }
 }
