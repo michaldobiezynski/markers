@@ -6,9 +6,19 @@ import './MapContainer.css';
 
 class MapContainer extends Component {
   state = {
-    isLoading: false,
     points: [],
   };
+
+  componentDidMount() {
+    const url = 'http://localhost:5000/api/map/all';
+
+    fetch(url)
+      .then(response => response.json())
+      .catch(error => console.error(error))
+      .then(json => {
+        this.setState({ points: json });
+      });
+  }
 
   render() {
     const mapClicked = (mapProps, map, clickEvent) => {
@@ -53,8 +63,6 @@ class MapContainer extends Component {
 
       const url = 'http://localhost:5000/api/map/delete';
 
-      console.log(props);
-      
       axios
         .delete(url, {
           headers: {
@@ -62,17 +70,13 @@ class MapContainer extends Component {
           },
           data: {
             source: props.position,
-          }
+          },
         })
         .catch(error => console.error(error))
         .then(response => console.log(response));
     };
 
-    return this.state.isLoading ? (
-      <div className='loadingMsg'>
-        <h1>Loading...</h1>
-      </div>
-    ) : (
+    return this.state.points ? (
       <Map
         className='map'
         google={this.props.google}
@@ -92,6 +96,10 @@ class MapContainer extends Component {
           );
         })}
       </Map>
+    ) : (
+      <div className='loadingMsg'>
+        <h1>Loading</h1>
+      </div>
     );
   }
 }
