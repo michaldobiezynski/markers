@@ -48,8 +48,7 @@ class MapContainer extends Component {
             'Content-Type': 'application/json',
           },
         })
-        .catch(error => console.error(error))
-        .then(response => console.log(response));
+        .catch(error => console.error(error));
     };
 
     const onMarkerClick = props => {
@@ -72,8 +71,7 @@ class MapContainer extends Component {
             source: props.position,
           },
         })
-        .catch(error => console.error(error))
-        .then(response => console.log(response));
+        .catch(error => console.error(error));
     };
 
     return (

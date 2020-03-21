@@ -10,7 +10,6 @@ const Marker = require('../models/Marker');
 router.get('/all', async (req, res) => {
   try {
     const markers = await Marker.find();
-    console.log(markers);
     res.json(markers);
   } catch (error) {
     console.error(error.message);
@@ -28,7 +27,6 @@ router.post('/add', async (req, res) => {
   }
 
   const { id, lat, lng } = req.body.data;
-  console.log(req.body.data);
 
   try {
     let marker = await Marker.findOne({ id });
