@@ -4,11 +4,12 @@
   "description": "A small web-app where you can place points on a map, save them and load them back again.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server"
   },
   "author": "Michal Dobiezynski",
   "license": "ISC",
   "dependencies": {
+    "config": "^3.3.0",
     "express": "^4.17.1",
     "express-validator": "^6.4.0",
     "mongodb": "^3.5.5",
