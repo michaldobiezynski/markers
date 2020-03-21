@@ -21,7 +21,7 @@ class MapContainer extends Component {
   }
 
   render() {
-    const mapClicked = clickEvent => {
+    const mapClicked = (mapProps, map, clickEvent) => {
       this.setState({
         points: [
           ...this.state.points,
